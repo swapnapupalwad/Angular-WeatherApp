@@ -1,0 +1,129 @@
+<p> <!--(input)="changesearch($event)" --></p>
+<div class="wrapper">
+    <div class="sidebar">
+        <div *ngIf="today">
+            <form class="search" id="search" #form="ngForm">
+                <input type="text" #myInput [(ngModel)]="inputValue" name="firstName" placeholder="Search..." />
+                <button (click)="onInputChanged( myInput.value || defaultValue)"><i class="fas fa-search"></i></button>
+                <!-- //(click)="onInputChanged()" -->
+            </form>
+            <div class="location-text">
+                <p id="location">{{today.resolvedAddress}}</p>
+            </div>
+            <div class="weather-icon">
+                <img id="icon" src="assets/images/day.jpg" alt="" />
+            </div>
+            <div class="temperature" *ngIf="di1Visible">
+                <h1 id="temp">{{currentHours.temp}} </h1>
+                <span class="temp-unit">°C</span>
+            </div>
+            <div class="temperature" *ngIf="di2Visible">
+                <h1 id="temp">{{(currentHours.temp * 9/5 + 32).toFixed(2)}} </h1>
+                <span class="temp-unit">F</span>
+            </div>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.8551251082876!2d${today.longitude}!3d${today.latitude}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f9f3f3d17beb9%3A0x15f7b446bd10e369!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1679552751286!5m2!1sen!2sus"
+                width="280" height="250" style="border: 2px black;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            <div class="date-time">
+                <p id="date-time">{{today.datetime}}</p>
+            </div>
+            <div class="divider"></div>
+            <div class="condition-rain">
+                <div class="condition">
+                    <i class="fas fa-cloud"></i>
+                    <p id="condition">{{today.condition}}</p>
+                </div>
+                <div class="rain">
+                    <i class="fas fa-tint"></i>
+                    <p id="rain">{{today.precip}} 0%</p>
+                </div>
+            </div>
+        </div>
+        <div class="location">
+            <div class="location-icon">
+                <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="location-text">
+                <p id="location">{{today.resolvedAddress}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <nav>
+            <ul class="options">
+                <button class="hourly" (click)="showDiv2()">today</button>
+                <button class="week active" (click)="showDiv1()">week</button>
+            </ul>
+            <ul class="options units">
+                <button class="celcius active" (click)="onClick()">°C</button>
+                <button class="fahrenheit" (click)="onClickf()">°F</button>
+            </ul>
+        </nav>
+        <marquee>
+            <h5>{{today.description}}</h5>
+        </marquee>
+
+        <div class="cards" id="weather-cards">
+            <!-- <h2 class="day-name">dayName</h2>
+            <div class="card-icon">
+                <img src="" class="day-icon" alt="" />
+            </div>
+            <div class="day-temp">
+                <h2 class="temp">dayTemp</h2>
+                <span class="temp-unit">tempUnit</span>
+            </div> -->
+            <app-week *ngIf="div1Visible" [childInput]="sendValue"> </app-week>
+            <app-main-content *ngIf="div2Visible" [childInput]="sendValue"></app-main-content>
+        </div>
+        <div class="highlights">
+            <h2 class="heading">today's highlights</h2>
+            <div class="cards" *ngIf="currentHours">
+                <div class="card2">
+                    <h4 class="card-heading">UV Index</h4>
+                    <div class="content">
+                        <p class="uv-index">{{currentHours.uvindex}}</p>
+                        <p class="uv-text">Low</p>
+                    </div>
+                </div>
+                <div class="card2">
+                    <h4 class="card-heading">Wind Status</h4>
+                    <div class="content">
+                        <p class="wind-speed">{{currentHours.windspeed}}</p>
+                        <p>km/h</p>
+                    </div>
+                </div>
+                <div class="card2">
+                    <h4 class="card-heading">Sunrise & Sunset</h4>
+                    <div class="content">
+                        <p class="sun-rise">{{currentHours.sunset}}</p>
+                        <p class="sun-set">{{currentHours.sunrise}}</p>
+                    </div>
+                </div>
+                <div class="card2">
+                    <h4 class="card-heading">Humidity</h4>
+                    <div class="content">
+                        <p class="humidity">{{currentHours.humidity }}</p>
+                        <p class="humidity-status">Normal</p>
+                    </div>
+                </div>
+                <div class="card2">
+                    <h4 class="card-heading">Visibility</h4>
+                    <div class="content">
+                        <p class="visibilty">{{currentHours.visibility}}</p>
+                        <p class="visibilty-status">Normal</p>
+                    </div>
+                </div>
+                <div class="card2">
+                    <h4 class="card-heading">Air Quality</h4>
+                    <div class="content">
+                        <p class="air-quality">{{currentHours.windgust}}</p>
+                        <p class="air-quality-status">Normal</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="credits">swapna pupalwad </p>
+    </div>
+</div>

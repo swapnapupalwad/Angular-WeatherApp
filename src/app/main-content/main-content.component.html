@@ -1,0 +1,13 @@
+<div class="vars">
+  <div class="card2" *ngFor="let vark of varss">
+    <h2 class="day-name"> {{vark.datetime|custompipe}}</h2>
+    <div class="card-icon">
+      <img [src]="getIcon(vark.icon)" class="day-icon" alt="" />
+    </div>
+    <div class="day-temp">
+      <p class="temp">{{vark.icon|uppercase}}</p>
+      <p class="temp-unit" > <span *ngIf="div1Visible"> {{vark.temp}}°C</span><span *ngIf="div2Visible">  {{(vark.temp * 9/5 + 32).toFixed(2)}}F</span></p>
+    </div>
+
+  </div>
+</div>

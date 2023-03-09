@@ -1,0 +1,46 @@
+
+
+ .tablink {
+    background-color:#c7c9dc;;
+    color: rgb(10, 9, 9);
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+    font-weight: 700;
+  }
+   
+  /* Change background color of buttons on hover */
+  .tablink:hover {
+    background-color: #777;
+    border-radius: 30%;
+  }
+  .Day-Time{
+  float: right;
+margin-top: -1%;}
+  .Time{
+    float: left;
+
+  }
+  
+  /* Set default styles for tab content */
+  .tabcontent {
+    color: rgb(31, 3, 3);
+    padding: 50px;
+    text-align: center;
+    background-image: url("src/assets/images/12.jpg");
+    background-size: 1550px 250px;
+    background-repeat: no-repeat;
+  }
+  
+  /* Style each tab content individually */
+   /* #London {   
+
+
+   }
+  #Paris {background-color:green;}
+  #Tokyo {background-color:blue;}
+  #Oslo {background-color:orange;}  */

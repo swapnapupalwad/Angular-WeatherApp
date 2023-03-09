@@ -1,0 +1,45 @@
+
+.bg-img {
+  /* The image used */
+  background-image: url("src/assets/images/16.jpg");
+
+  min-height: 100px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  /* Needed to position the navbar */
+  position: relative;
+}
+
+/* Position the navbar container inside the image */
+.container {
+  position: absolute;
+  margin: 20px;
+  margin-left: 200px;
+  width: auto;
+}
+
+/* The navbar */
+.topnav {
+  overflow: hidden;
+  margin-top: 20px;
+  position: absolute;
+}
+
+/* Navbar links */
+.topnav a {
+  color: #050505;
+  text-align: center;
+  padding: 14px 80px;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 800;
+  margin-left:-8%;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+}

@@ -1,0 +1,15 @@
+<p>week works!</p>
+
+<div  class="vars">
+    <div  class="card2" *ngFor="let vark of varss.slice(0, 8);">
+      <h2 class="day-name">{{vark.datetime|daynames}}</h2>
+      <div class="card-icon">
+           <img [src]="getIcon(vark.icon)" class="day-icon" alt="" /> 
+      </div>
+      <div class="day-temp">
+          <p class="temp">{{vark.icon}}</p>
+          <p class="temp-unit"><span *ngIf="divw1Visible"> {{vark.temp}}°C</span><span *ngIf="divw2Visible">  {{(vark.temp * 9/5 + 32).toFixed(2)}}F</span></p>
+      </div>
+      
+    </div>
+  </div>
